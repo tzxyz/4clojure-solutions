@@ -2,10 +2,6 @@
 
 My 4Clojure answers
 
-## Usage
-
-FIXME
-
 ## License
 
 Copyright © 2015 FIXME
