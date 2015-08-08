@@ -19,3 +19,14 @@
 
 ;; TODO 没解决
 (longest-increasing-sub-seq [1 2 3 0 4 5])
+
+(->> [2 5 4 1 3 6] (drop 2) (take 3) (map inc))
+
+(->> [2 5 4 1 3 6]
+     (drop 2)
+     (take 3)
+     (map inc)
+     (reduce +))
+
+;; (map inc (take 3 (drop 2 [2 5 4 1 3 6])))
+;; ((fn [args] (reduce + args)) (map inc (take 3 (drop 2 [2 5 4 1 3 6]))))
