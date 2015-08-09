@@ -18,15 +18,18 @@
 
 
 ;; TODO 没解决
-(longest-increasing-sub-seq [1 2 3 0 4 5])
+;; (longest-increasing-sub-seq [1 0 1 2 3 0 4 5])
 
-(->> [2 5 4 1 3 6] (drop 2) (take 3) (map inc))
+;; (= (__ 1 4) '(1 2 3))
 
-(->> [2 5 4 1 3 6]
-     (drop 2)
-     (take 3)
-     (map inc)
-     (reduce +))
+(defn my-range
+  [start end]
+  "my range"
+  (loop [start start
+         data  '()]
+    (if (< start end)
+        (conj data start)
+        (recur (inc start) data))))
 
-;; (map inc (take 3 (drop 2 [2 5 4 1 3 6])))
-;; ((fn [args] (reduce + args)) (map inc (take 3 (drop 2 [2 5 4 1 3 6]))))
+(my-range 2 3)
+(my-range 3 10)
