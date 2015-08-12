@@ -34,3 +34,12 @@
 ;; ------------------- test identity ---------------------
 (identity [1 2])
 
+;; ------------------- test interleave -------------------
+;; (interleave) (interleave coll) (interleave coll1 coll2) (interleave coll1 coll2 & colls)
+;; 返回每一个coll中的第一个item，第二个item... 第n个item，以item长度最小的那个coll为基础
+(interleave)
+(interleave [1 2])
+(interleave [1 2] ["a" "b"])
+(interleave [1 2] [2 1])
+(interleave [1 2 3 4] ["a" "b" "c"] [11 22 33] [111 222 333])
+
