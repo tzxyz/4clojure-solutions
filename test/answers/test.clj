@@ -43,3 +43,26 @@
 (interleave [1 2] [2 1])
 (interleave [1 2 3 4] ["a" "b" "c"] [11 22 33] [111 222 333])
 
+;; ------------------- test frequencies ------------------
+;; (frequencies coll) 返回的是coll中的元素，和出现的次数的键值对
+(frequencies [1 2 3])
+(frequencies '("a" "a" "p"))
+(frequencies [2 2 3 4])
+
+;; ------------------- test into -------------------------
+;; (= (__ 0 [:a :b :c]) {:a 0 :b 0 :c 0})
+
+;; (= (__ [1 1 2 3 3 2 2 3]) '(1 2 3 2 3))
+
+;; ------------------- test partition --------------------
+;; (partition n coll) 等价于 (partition n n coll)
+(partition 4 (range 20))
+
+;; (partition n step coll)
+(partition 4 2 (range 20))
+;; true
+(= (partition 4 (range 20)) (partition 4 4 (range 20)))
+
+;; (partition n step pad coll)
+;; pad用来补余，pad必须是个seq
+(partition 4 2 "aaa" (range 20))
