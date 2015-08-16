@@ -9,31 +9,20 @@
 (defn replicate-a-sequence
   [coll times]
   "Write a function which replicates each element of a sequence a variable number of times."
-  (interleave (repeat times coll)))
+  (apply interleave (map identity (repeat times coll))))
 
-
-(repeat 2 [1 2 3])
 
 (replicate-a-sequence [1 2 3] 2)
 (replicate-a-sequence [:a :b] 4)
 
-(defn te
-  [coll times]
-  (last (take times (iterate (fn [coll] (interleave coll coll)) coll))))
+;; 4clojure上这个case没有通过，本地通过了
+;; 将clojure的版本换成1.7.0就通过了
+(replicate-a-sequence [4 5 6] 1)
+(replicate-a-sequence [[1 2] [3 4]] 2)
+(replicate-a-sequence [44 33] 2)
 
-(te [1 2 3] 2)
-
-(defn aa [times coll]
-  (interleave ))
-
-(aa 2 [1 2 3])
-(aa 4 [:a :b])
-
-(defn fuck [value coll]
-  (drop-last (interleave coll (repeat value))))
-
-
-
-(fuck 0 [1 2 3])
-(fuck :z [:a :b :c :d])
-
+;; 为了通过测试这样写
+(= ((fn [coll times]
+      (if (= 1 times)
+          coll
+          (apply interleave (map identity (repeat times coll))))) [4 5 6] 1) '(4 5 6))

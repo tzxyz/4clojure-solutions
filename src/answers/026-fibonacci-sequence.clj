@@ -1,14 +1,14 @@
+;; Write a function which returns the first X fibonacci numbers.
+
+;; (= (__ 3) '(1 1 2))
 ;; (= (__ 6) '(1 1 2 3 5 8))
-;; (= (__ [1 1 2 1 1 1 3 3]) '((1 1) (2) (1 1 1) (3 3)))
-;; (= (__ [:a :a :b :b :c]) '((:a :a) (:b :b) (:c)))
+;; (= (__ 8) '(1 1 2 3 5 8 13 21))
 
+(defn fibonacci-sequence
+  [numbers]
+  "Write a function which returns the first X fibonacci numbers."
+  (take numbers (map last (iterate (fn [[x y]] [y (+ x y)]) [0 1]))))
 
-
-
-(defn pack-a-sequence
-  [coll]
-  ""
-  (partition-by identity coll))
-
-(pack-a-sequence [1 1 2 1 1 1 3 3])
-(pack-a-sequence [:a :a :b :b :c])
+(fibonacci-sequence 3)
+(fibonacci-sequence 6)
+(fibonacci-sequence 8)
