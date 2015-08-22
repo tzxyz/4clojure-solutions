@@ -33,7 +33,15 @@
 
 (apply concat (map vector [1 2 3] [:a :b :c]))
 
+
 (map vector [1 2 3] [:a :b :c])
 (map vector [1 2 3] [:a :b :c] ["x" "y" "z"])
 
+;; 将coll转换成vec 只有一个参数
+(vec [1])
+(vec {:name "zhuo" :age 22})
+
 (vector [1 2] [:a :b])
+
+;; 为什么map是这样
+(map inc [1 2 3])
