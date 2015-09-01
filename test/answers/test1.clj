@@ -121,6 +121,47 @@
 
 (split-by-type [1 :a 2 :b 3 :c])
 
+;; ==================== test 100 ========================
+(== (* 1/3 2/5) 2)
+
+(* 1/3 2/5)
+
+(* 7 5/7 2 3/5)
+
+;; ==================== test 88 =====================
+;; (= (__ #{1 2 3 4 5 6} #{1 3 5 7}) #{2 4 6 7})
+(merge #{1 2 3 4 5 6} #{1 3 5 7})
+
+(merge (frequencies #{1 2 3 4 5 6}) (frequencies #{1 3 5 7}))
+
+(use 'clojure.set)
+(difference  (union #{1 2 3 4 5 6} #{1 3 5 7}) (intersection #{1 2 3 4 5 6} #{1 3 5 7}))
+
+;; ==================== test 81 ======================
+(set (for [x (union #{1 2 3 4 5 6} #{1 3 5 7}) :when (and (contains? #{2 3 4 5} x) (contains? #{0 1 2 3} x))]
+  x))
+
+;; =================== test 122 ======================
+;; (= 7     (__ "111"))
+
+(Integer/valueOf "111")
+
+(vec (seq "100"))
+
+(apply hash-map [1 2 3 4])
+
+(map-indexed (fn [index value] [index value]) "111")
+
+(repeat 2 1)
+
+(->> (reverse "1000")
+     (map-indexed vector)
+     (filter #(= \1 (last %)))
+         (map #(first %))
+         (map #(apply * (repeat % 2)))
+         (reduce +))
+
+;; ================= success ======
 
 
 
