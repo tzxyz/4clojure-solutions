@@ -17,10 +17,3 @@
      (take 3)
      (map inc)
      ((fn [args] (reduce + args)))))
-
-;; 第一次漏了一对括号，为什么最后变成了fn?
-;; (->> [2 5 4 1 3 6]
-;;     (drop 2)
-;;     (take 3)
-;;     (map inc)
-;;     (fn [arg] (reduce + arg)))

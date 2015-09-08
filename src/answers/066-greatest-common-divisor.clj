@@ -13,7 +13,7 @@
         b
         (recur b (mod a b)))))
 
-(greatest-common-divisor 2 4)
-(greatest-common-divisor 10 5)
-(greatest-common-divisor 5 7)
-(greatest-common-divisor 1023 858)
+(= (greatest-common-divisor 2 4) 2)
+(= (greatest-common-divisor 10 5) 5)
+(= (greatest-common-divisor 5 7) 1)
+(= (greatest-common-divisor 1023 858) 33)
